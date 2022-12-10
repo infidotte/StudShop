@@ -44,7 +44,7 @@
                             </c:otherwise>
                         </c:choose>
                         <c:if test="${isAdmin==true}">
-                            <li><a href="#">Administration</a></li>
+                            <li><a href="/admin">Administration</a></li>
                         </c:if>
                     </div>
                 </div>

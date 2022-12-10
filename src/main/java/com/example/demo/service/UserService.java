@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
         User user = userRepository.findByUsername(name);
         return Objects.requireNonNullElseGet(user, User::new);
     }
-    public List<User> findAllUsers(){
+    public Iterable<User> findAllUsers(){
         return userRepository.findAll();
     }
     public boolean saveUser(User user){
