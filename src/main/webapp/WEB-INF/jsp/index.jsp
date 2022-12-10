@@ -62,12 +62,13 @@
         </div>
     </div>
 </nav>
+<br>
 <div class="container">
     <div class="row">
         <c:forEach var="post" items="${posts}">
             <div class="col-4">
                 <div class="card">
-                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto" style="height: 25rem; width: 25rem">
+                        <img src="/images/${post.getId()}" alt="A cat" class="card-img-top img-fluid img-thumbnail" style="width: 25rem ; height: 25rem">
                     <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">${post.price}$</p>
@@ -78,7 +79,7 @@
         </c:forEach>
     </div>
 </div>
-
+<br>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
         crossorigin="anonymous"></script>
