@@ -102,7 +102,7 @@
         <h3>${user.phone}</h3>
     </c:forEach>
     <c:if test="${isAdmin==true}">
-        <button onclick="document.location.href+='/delete'" value="Delete">Delete</button>
+        <button class="btn btn-danger" onclick="document.location.href+='/delete'" value="Delete">Delete</button>
     </c:if>
 </div>
 </body>
