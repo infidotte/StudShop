@@ -33,5 +33,9 @@ public class ImageService {
         }
         return true;
     }
+
+    public void deleteImage(Image image) {
+        imageRepository.delete(image);
+    }
 }
 

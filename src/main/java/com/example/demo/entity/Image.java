@@ -14,7 +14,7 @@ public class Image {
 
     @Lob
     private byte[] bytes;
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "id")
     private Post post;
