@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Image;
 import com.example.demo.entity.Post;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserData;
@@ -17,7 +18,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -37,6 +41,7 @@ public class PostController {
 
     @GetMapping("post/newpost")
     public String newPost(Model model){
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         Post post = new Post();
         model.addAttribute("newPostForm", post);
         return "newpost";
@@ -53,6 +58,8 @@ public class PostController {
     @GetMapping("/post/{id}/delete")
     public String deletePost(Model model, @PathVariable(value = "id") Long id){
         Post post = postService.findById(id).get();
+        Image image = imageService.findById(id).get();
+        imageService.deleteImage(image);
         postService.deletePost(post);
         return "redirect:/";
     }
