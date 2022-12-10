@@ -4,7 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Table(name = "t_post")
@@ -33,7 +32,7 @@ public class Post {
 
     @PrePersist
     private void init(){
-        dateOfCreate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        dateOfCreate = LocalDateTime.now().toString().substring(0,9);
     }
 
 
