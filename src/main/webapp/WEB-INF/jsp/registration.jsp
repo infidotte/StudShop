@@ -7,53 +7,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="/"
                class="navbar-brand">StudShop</a>
         </div>
-        <br>
     </div>
 </nav>
-<div class="navbar-collapse collapse">
+<br>
+<br>
+<br>
+<div class="container card text-center" style="width: 25rem;">
     <form:form class="navbar-form navbar-center" method="post" modelAttribute="userForm">
-        <h2>Registration</h2>
-        <div class="form-group">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <form:input type="text" path="username" placeholder="Username" autofocus="true" class="form-control"></form:input>
-                    <form:errors path="username"></form:errors>
-                        ${usernameError}
-                </li>
-                <li class="list-group-item">
-                    <form:input type="password" path="password" placeholder="Password" class="form-control"></form:input>
-                </li>
-                <li class="list-group-item">
-                    <form:input type="password" path="passwordConfirm" placeholder="Confirm your password" class="form-control"></form:input>
-                    <form:errors path="password"></form:errors>
-                        ${passwordError}
-                </li>
-            </ul>
-            </ul>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-success">Sign-up</button>
+    <div class="card-body">
+        <form method="POST" action="/login" class="center">
+            <h2 class="h3 mb-3 fw-normal">Registration</h2>
+            <div class="form-floating">
+                <form:input type="text" path="username" placeholder="Username" autofocus="true" class="form-control" id="Name"></form:input>
+                <label for="Name">Name</label>
+                <form:errors path="username"></form:errors>
+                    ${usernameError}
+            </div>
+            <div class="form-floating">
+                <form:input type="password" path="password" placeholder="Password" class="form-control" id="Password"></form:input>
+                <label for="Password">Password</label>
+            </div>
+            <div class="form-floating">
+                <form:input type="password" path="passwordConfirm" placeholder="Confirm your password" class="form-control" id="Repeat Password"></form:input>
+                <label for="Repeat Password">Repeat Password</label>
+                <form:errors path="password"></form:errors>
+                    ${passwordError}
+            </div>
+            <br>
+            <div class="container">
+                <button type="submit" class="btn btn-success">Sign-up</button>
+            </div>
+        </form>
+    </div>
     </form:form>
 </div>
 </body>
