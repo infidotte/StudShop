@@ -62,14 +62,24 @@
         </div>
     </div>
 </nav>
-    <div>
+<br>
+<div class="container">
+    <div class="row">
         <c:forEach var="post" items="${posts}">
-            <h3>${post.title}</h3>
-            <img src="/images/${post.getId()}"><br>
-            <a href="/post/${post.id}">Post info</a><br>
-            <button onclick="location.href = '/post/${post.id}/delete'" value="Delete">Delete</button>
-
+            <div class="col-4">
+                <div class="card">
+                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top img-fluid img-thumbnail" style="width: 25rem ; height: 25rem">
+                    <div class="card-body">
+                        <h5 class="card-title">${post.title}</h5>
+                        <p class="card-text">${post.price}$</p>
+                        <a class=" card-text btn btn-info" href="/post/${post.id}">Post info</a>
+                        <button class="btn btn-danger" onclick="location.href = '/post/${post.id}/delete'" value="Delete">Delete</button>
+                    </div>
+                </div>
+            </div>
         </c:forEach>
     </div>
+</div>
+<br>
 </body>
 </html>
