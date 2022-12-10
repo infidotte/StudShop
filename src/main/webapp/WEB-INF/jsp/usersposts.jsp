@@ -90,7 +90,7 @@
             <h3>${post.title}</h3>
             <img src="/images/${post.getId()}"><br>
             <a href="/post/${post.id}">Post info</a><br>
-            <button onclick="location.href = '/post/${post.id}/delete'" value="Delete">Delete</button>
+            <button onclick="location.href += '/${post.id}/delete'" value="Delete">Delete</button>
 
         </c:forEach>
     </div>

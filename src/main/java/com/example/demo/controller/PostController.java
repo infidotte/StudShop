@@ -9,6 +9,7 @@ import com.example.demo.service.PostService;
 import com.example.demo.service.UserDataService;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -55,14 +56,24 @@ public class PostController {
         postService.savePost(newPostForm);
         return "redirect:/";
     }
+    @GetMapping("/{name}/profile/posts/{id}/delete")
+    private String deletePost(@PathVariable Long id, @PathVariable String name){
+        Post post = postService.findById(id).get();
+        Image image = imageService.findById(id).get();
+        imageService.deleteImage(image);
+        postService.deletePost(post);
+        return "redirect:/" + name + "/profile/posts";
+    }
     @GetMapping("/post/{id}/delete")
-    public String deletePost(Model model, @PathVariable(value = "id") Long id){
+    private String deletePostByAdmin(@PathVariable Long id){
         Post post = postService.findById(id).get();
         Image image = imageService.findById(id).get();
         imageService.deleteImage(image);
         postService.deletePost(post);
         return "redirect:/";
     }
+
+
     @GetMapping("/post/{id}")
     public String postDetails(Model model, @PathVariable(value = "id") Long id){
         Optional<Post> post = postService.findById(id);
