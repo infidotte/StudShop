@@ -87,11 +87,11 @@
     </div>
 </nav>
 <div class="table">
-    <c:forEach var="post" items="${posts}">
+    <c:forEach var="user" items="${users}">
         <div class="container">
-            <h3>${post.title}</h3>
-            <img src="/images/${post.getId()}"><br>
-            <a href="/post/${post.id}">Post info</a><br>
+            <h3>${user.getId()}</h3>
+            <p>${user.getUsername()}</p>
+            <a href="/admin/${user.getId()}/delete">Delete user</a><br>
         </div>
     </c:forEach>
 </div>

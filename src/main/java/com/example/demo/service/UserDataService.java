@@ -24,5 +24,12 @@ public class UserDataService {
     public void saveUserData(UserData userData){
         userDataRepository.save(userData);
     }
-
+    public boolean deleteUserData(Long id){
+        if(userDataRepository.findById(id).isPresent()){
+            userDataRepository.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
