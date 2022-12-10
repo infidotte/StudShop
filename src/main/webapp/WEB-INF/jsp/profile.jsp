@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,8 +71,7 @@
                                 <tr>
                                     <td class="align-middle">
                                         <div class="btn-group " role="group" aria-label="Basic outlined example">
-                                            <a type="button" class="btn btn-info"
-                                               href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
+                                            <a type="button" class="btn btn-info" href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
                                             <a type="button" class="btn btn-info" href="/logout">Logout</a>
                                         </div>
                                     </td>
@@ -87,28 +86,22 @@
         <br>
     </div>
 </nav>
-<div class="navbar-collapse collapse">
-        <form:form class="navbar-form navbar-center" method="post" modelAttribute="userDataForm">
-            <h2>About you</h2>
-            <div class="form-group">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <form:input type="text" path="name" placeholder="Name" autofocus="true"
-                                    class="form-control"></form:input>
-                    </li>
-                    <li class="list-group-item">
-                        <form:input type="text" path="address" placeholder="Address" class="form-control"></form:input>
-                    </li>
-                    <li class="list-group-item">
-                        <form:input type="text" path="phone" placeholder="Phone number"
-                                    class="form-control"></form:input>
-                    </li>
-                </ul>
-                </ul>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-success">Update</button>
-        </form:form>
+<div>
+    <form:form method="post" modelAttribute="userDataForm">
+        <h2>About you</h2>
+        <div>
+            <form:input type="text" path="name" placeholder="Name"
+                        autofocus="true"></form:input>
+        </div>
+        <div>
+            <form:input type="text" path="address" placeholder="Address"></form:input>
+        </div>
+        <div>
+            <form:input type="text" path="phone" placeholder="Phone number"></form:input>
+        </div>
+        <button type="submit">Update</button>
+    </form:form>
+
 </div>
 </body>
 </html>
