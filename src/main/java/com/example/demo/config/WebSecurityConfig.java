@@ -29,6 +29,7 @@ public class WebSecurityConfig {
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/profile/**").hasRole("USER")
                 .antMatchers("/newpost/**").hasRole("USER")
+                .antMatchers("/", "/images/**").permitAll()
                 .anyRequest().authenticated().and()
                     .formLogin()
                     .loginPage("/login")

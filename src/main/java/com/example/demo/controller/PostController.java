@@ -17,7 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.xml.crypto.Data;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -37,6 +40,7 @@ public class PostController {
 
     @GetMapping("post/newpost")
     public String newPost(Model model){
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         Post post = new Post();
         model.addAttribute("newPostForm", post);
         return "newpost";
