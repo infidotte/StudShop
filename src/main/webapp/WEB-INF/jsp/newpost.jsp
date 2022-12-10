@@ -1,7 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +32,7 @@
             <sec:authorize access="isAuthenticated()" var="isAuth"/>
             <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
             <div class="row">
-                <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="col-lg-10 col-md-10 col-sm-10" >
                     <div class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
                         <c:choose>
@@ -70,8 +70,7 @@
                                 <tr>
                                     <td class="align-middle">
                                         <div class="btn-group " role="group" aria-label="Basic outlined example">
-                                            <a type="button" class="btn btn-info"
-                                               href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
+                                            <a type="button" class="btn btn-info" href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
                                             <a type="button" class="btn btn-info" href="/logout">Logout</a>
                                         </div>
                                     </td>
@@ -87,7 +86,6 @@
     </div>
 </nav>
 <div class="navbar-collapse collapse">
-<<<<<<< HEAD
 
     <form:form method="post" enctype="multipart/form-data" modelAttribute="newPostForm">
         <h2>Post data</h2>
@@ -105,23 +103,6 @@
         </div>
     </form:form>
 
-=======
-        <form:form class="navbar-form navbar-center" method="post" enctype="multipart/form-data" modelAttribute="newPostForm">
-            <h2>Post data</h2>
-            <ul class="list-group list-group-horizontal">
-                <div class="form-group">
-                    <form:input type="text" path="title" placeholder="Title" autofocus="true" class="form-control"></form:input>
-                    <form:input type="text" path="description" placeholder="Description" class="form-control"></form:input>
-                    <form:input type="text" path="price" placeholder="Price" class="form-control"></form:input>
-                    <br>
-                    <br>
-                </div>
-                <input type="file" name="file" class="btn btn-info">
-                <br>
-            </ul>
-            <button type="submit" class="btn btn-success">Update</button>
-        </form:form>
->>>>>>> Konda
 </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>StudShop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
@@ -20,6 +20,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -70,8 +71,7 @@
                                 <tr>
                                     <td class="align-middle">
                                         <div class="btn-group " role="group" aria-label="Basic outlined example">
-                                            <a type="button" class="btn btn-info"
-                                               href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
+                                            <a type="button" class="btn btn-info" href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
                                             <a type="button" class="btn btn-info" href="/logout">Logout</a>
                                         </div>
                                     </td>
