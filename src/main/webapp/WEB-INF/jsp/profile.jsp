@@ -88,8 +88,7 @@
     </div>
 </nav>
 <div class="navbar-collapse collapse">
-    <form class="navbar-form navbar-center">
-        <form:form method="post" modelAttribute="userDataForm">
+        <form:form class="navbar-form navbar-center" method="post" modelAttribute="userDataForm">
             <h2>About you</h2>
             <div class="form-group">
                 <ul class="list-group">
@@ -110,7 +109,6 @@
             <br>
             <button type="submit" class="btn btn-success">Update</button>
         </form:form>
-    </form>
 </div>
 </body>
 </html>

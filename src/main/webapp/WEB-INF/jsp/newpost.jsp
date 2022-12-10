@@ -87,8 +87,7 @@
     </div>
 </nav>
 <div class="navbar-collapse collapse">
-    <form class="navbar-form navbar-center">
-        <form:form method="post" enctype="multipart/form-data" modelAttribute="newPostForm">
+        <form:form class="navbar-form navbar-center" method="post" enctype="multipart/form-data" modelAttribute="newPostForm">
             <h2>Post data</h2>
             <ul class="list-group list-group-horizontal">
                 <div class="form-group">
@@ -103,7 +102,6 @@
             </ul>
             <button type="submit" class="btn btn-success">Update</button>
         </form:form>
-    </form>
 </div>
 </body>
 </html>

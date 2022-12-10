@@ -32,8 +32,7 @@
     </div>
 </nav>
 <div class="navbar-collapse collapse">
-    <form class="navbar-form navbar-center">
-    <form:form method="post" modelAttribute="userForm">
+    <form:form class="navbar-form navbar-center" method="post" modelAttribute="userForm">
         <h2>Registration</h2>
         <div class="form-group">
             <ul class="list-group">
@@ -56,7 +55,6 @@
         <br>
         <button type="submit" class="btn btn-success">Sign-up</button>
     </form:form>
-    </form>
 </div>
 </body>
 </html>
