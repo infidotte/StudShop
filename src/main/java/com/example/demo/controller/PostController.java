@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.entity.Image;
 import com.example.demo.entity.Post;
 import com.example.demo.entity.User;
 import com.example.demo.entity.UserData;
@@ -57,6 +58,8 @@ public class PostController {
     @GetMapping("/post/{id}/delete")
     public String deletePost(Model model, @PathVariable(value = "id") Long id){
         Post post = postService.findById(id).get();
+        Image image = imageService.findById(id).get();
+        imageService.deleteImage(image);
         postService.deletePost(post);
         return "redirect:/";
     }
