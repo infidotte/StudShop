@@ -66,9 +66,9 @@
 <div class="container">
     <div class="row">
         <c:forEach var="post" items="${posts}">
-            <div class="col-4">
+            <div class="col-3">
                 <div class="card">
-                        <img src="/images/${post.getId()}" alt="A cat" class="card-img-top img-fluid img-thumbnail" style="width: 25rem ; height: 25rem">
+                        <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-fluid img-thumbnail" style="width: 25rem ; height: 25rem">
                     <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">${post.price}$</p>
