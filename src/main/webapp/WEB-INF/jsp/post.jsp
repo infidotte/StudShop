@@ -29,18 +29,18 @@
         <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
                 <c:choose>
                     <c:when test="${isAuth==true}">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/post/newpost">Make
+                        <li class="nav-item"><a class="nav-link " aria-current="page" href="/post/newpost">Make
                             post</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="nav-item"><a class="nav-link active" href="/login">Make post</a></li>
+                        <li class="nav-item"><a class="nav-link " href="/login">Make post</a></li>
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${isAdmin==true}">
-                    <li class="nav-item"><a class="nav-link active" href="/admin">Administration</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/admin">Administration</a></li>
                 </c:if>
             </ul>
             <c:if test="${isAuth != true}">
@@ -70,8 +70,8 @@
         <div class="container card" style="height: 10% ; width: 100%">
             <h3 class="card-title text-center">${post.title}</h3>
         </div>
-        <div class="container card" style="width: 33%">
-            <img src="/images/${post.getId()}" class="card-img-top mx-auto" style="height: 25rem; width: 25rem"><br>
+        <div class="container card" style="width: 27rem">
+            <br><img src="/images/${post.getId()}" class="card-img-top mx-auto img-thumbnail img-fluid" ><br>
         </div>
         <div class="container card" style="width: 27.5rem">
             <h4 class="card-text">Price: ${post.price}$</h4>

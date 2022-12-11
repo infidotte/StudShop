@@ -37,6 +37,7 @@
                 <input name="username" type="text" placeholder="Username" autofocus="true" class="form-control" id="Name">
                 <label for="Name">Name</label>
             </div>
+            <br>
             <div class="form-floating">
                 <input name="password" type="password" placeholder="Password" class="form-control" id="Password">
                 <label for="Password">Password</label>

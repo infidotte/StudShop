@@ -28,19 +28,20 @@
         <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
                 <c:choose>
                     <c:when test="${isAuth==true}">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/post/newpost">Make
+                        <li class="nav-item"><a class="nav-link " aria-current="page" href="/post/newpost">Make
                             post</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="nav-item"><a class="nav-link active" href="/login">Make post</a></li>
+                        <li class="nav-item"><a class="nav-link " href="/login">Make post</a></li>
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${isAdmin==true}">
-                    <li class="nav-item"><a class="nav-link active" href="/admin">Administration</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/admin">Administration</a></li>
                 </c:if>
+                <li class="nav-item"><a class="nav-link active" href="/${pageContext.request.userPrincipal.name}/profile/posts">Your posts</a></li>
             </ul>
             <c:if test="${isAuth != true}">
                 <form class="d-flex">
@@ -66,9 +67,9 @@
 <div class="container">
     <div class="row">
         <c:forEach var="post" items="${posts}">
-            <div class="col-4">
-                <div class="card">
-                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top img-fluid img-thumbnail" style="width: 25rem ; height: 25rem">
+            <div class="col-3" style="width: 20.5rem ;height: 31.5rem">
+                <div class="card" style="width: 20rem ; height: 31rem">
+                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-thumbnail img-fluid" >
                     <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">${post.price}$</p>

@@ -31,15 +31,15 @@
                 <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
                 <c:choose>
                     <c:when test="${isAuth==true}">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/post/newpost">Make
+                        <li class="nav-item"><a class="nav-link " aria-current="page" href="/post/newpost">Make
                             post</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li class="nav-item"><a class="nav-link active" href="/login">Make post</a></li>
+                        <li class="nav-item"><a class="nav-link " href="/login">Make post</a></li>
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${isAdmin==true}">
-                    <li class="nav-item"><a class="nav-link active" href="/admin">Administration</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/admin">Administration</a></li>
                 </c:if>
             </ul>
             <c:if test="${isAuth != true}">
@@ -63,12 +63,12 @@
     </div>
 </nav>
 <br>
-<div class="container">
+<div class="container" >
     <div class="row">
         <c:forEach var="post" items="${posts}">
-            <div class="col-3">
-                <div class="card">
-                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-fluid img-thumbnail" style="width: 20rem ; height: 20rem">
+            <div class="col-3" style="width: 20.5rem ;height: 31.5rem">
+                <div class="card" style="width: 20rem ; height: 31rem">
+                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-thumbnail img-fluid" >
                     <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">${post.price}$</p>
@@ -80,11 +80,6 @@
     </div>
 </div>
 <br>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
-        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
-        crossorigin="anonymous"></script>
+
 </body>
 </html>

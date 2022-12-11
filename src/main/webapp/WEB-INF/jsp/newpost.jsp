@@ -28,7 +28,7 @@
         <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
                 <c:choose>
                     <c:when test="${isAuth==true}">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/post/newpost">Make
@@ -39,7 +39,7 @@
                     </c:otherwise>
                 </c:choose>
                 <c:if test="${isAdmin==true}">
-                    <li class="nav-item"><a class="nav-link active" href="/admin">Administration</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/admin">Administration</a></li>
                 </c:if>
             </ul>
             <c:if test="${isAuth != true}">

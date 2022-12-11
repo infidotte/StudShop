@@ -36,10 +36,12 @@
                     <form:errors path="username"></form:errors>
                         ${usernameError}
                 </div>
+                <br>
                 <div class="form-floating">
                     <form:input type="password" path="password" placeholder="Password" class="form-control" id="Password"></form:input>
                     <label for="Password">Password</label>
                 </div>
+                <br>
                 <div class="form-floating">
                     <form:input type="password" path="passwordConfirm" placeholder="Confirm your password" class="form-control" id="Repeat Password"></form:input>
                     <label for="Repeat Password">Repeat Password</label>
