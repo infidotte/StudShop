@@ -63,12 +63,17 @@
     </div>
 </nav>
 <br>
-<div class="container" >
+<div class="container">
     <div class="row">
         <c:forEach var="post" items="${posts}">
             <div class="col-3" style="width: 20.5rem ;height: 31.5rem">
                 <div class="card" style="width: 20rem ; height: 31rem">
-                    <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-thumbnail img-fluid" >
+                    <div class="card-body" style="width: 20rem ; height: 20rem">
+                        <div class="text-center">
+                            <img src="/images/${post.getId()}" alt="A cat" class="card-img-top mx-auto img-thumbnail img-responsive">
+                        </div>
+                    </div>
+                    <br>
                     <div class="card-body">
                         <h5 class="card-title">${post.title}</h5>
                         <p class="card-text">${post.price}$</p>
