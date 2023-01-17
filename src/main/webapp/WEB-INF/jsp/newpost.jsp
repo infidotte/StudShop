@@ -70,7 +70,7 @@
         <h2 class="h3 mb-3 fw-normal text-center">Post data</h2>
         <ul class="list-group ">
             <ul class="list-group list-group-horizontal">
-                <form:input type="text" path="title" placeholder="Title" autofocus="true"
+                <form:input type="text" path="title" placeholder="Title"
                             class="list-group-item"></form:input>
                 <form:input type="text" path="description" placeholder="Description"
                             class="list-group-item"></form:input>
