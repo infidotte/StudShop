@@ -21,7 +21,8 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     private Set<Post> posts;
 
     public Set<Post> getPosts() {

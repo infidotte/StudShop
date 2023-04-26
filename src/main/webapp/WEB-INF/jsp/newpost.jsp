@@ -1,106 +1,89 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>StudShop</title>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>NewPost</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Bootstrap Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <div class="navbar-header">
             <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
                class="navbar-brand">StudShop</a>
         </div>
-        <header>
-            <sec:authorize access="isAuthenticated()" var="isAuth"/>
-            <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
-            <div class="row">
-                <div class="col-lg-10 col-md-10 col-sm-10" >
-                    <div class="nav navbar-nav">
-                        <li><a href="/">Home</a></li>
-                        <c:choose>
-                            <c:when test="${isAuth==true}">
-                                <li><a href="/post/newpost">Make post</a></li>
-                            </c:when>
-                            <c:otherwise>
-                                <li><a href="/login">Make post</a></li>
-                            </c:otherwise>
-                        </c:choose>
-                        <c:if test="${isAdmin==true}">
-                            <li><a href="/admin">Administration</a></li>
-                        </c:if>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <sec:authorize access="isAuthenticated()" var="isAuth"/>
+        <sec:authorize access="hasRole('ADMIN')" var="isAdmin"/>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link " href="/">Home</a></li>
+                <c:choose>
+                    <c:when test="${isAuth==true}">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/post/newpost">Make
+                            post</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="nav-item"><a class="nav-link active" href="/login">Make post</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:if test="${isAdmin==true}">
+                    <li class="nav-item"><a class="nav-link " href="/admin">Administration</a></li>
+                </c:if>
+            </ul>
+            <c:if test="${isAuth != true}">
+                <form class="d-flex">
+                    <div class="btn-group " role="group" aria-label="Basic outlined example">
+                        <a href="/login" type="button" class="btn btn-info">Login</a>
+                        <a href="/registration" type="button" class="btn btn-info">Sign-up</a>
                     </div>
-                </div>
-                <div class="col-lg-1.5 col-md-1.5 col-sm-1.5">
-                    <div class="nav navbar-nav text - left">
-                        <c:if test="${isAuth != true}">
-                            <table style="height: 50px;">
-                                <tbody>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="btn-group " role="group" aria-label="Basic outlined example">
-                                            <a href="/login" type="button" class="btn btn-info">Login</a>
-                                            <a href="/registration" type="button" class="btn btn-info">Sign-up</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </c:if>
-                        <c:if test="${isAuth == true}">
-                            <table style="height: 50px;">
-                                <tbody>
-                                <tr>
-                                    <td class="align-middle">
-                                        <div class="btn-group " role="group" aria-label="Basic outlined example">
-                                            <a type="button" class="btn btn-info" href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
-                                            <a type="button" class="btn btn-info" href="/logout">Logout</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </c:if>
+                </form>
+            </c:if>
+            <c:if test="${isAuth == true}">
+                <form class="d-flex">
+                    <div class="btn-group " role="group" aria-label="Basic outlined example">
+                        <a type="button" class="btn btn-info"
+                           href="/${pageContext.request.userPrincipal.name}/profile">${pageContext.request.userPrincipal.name}</a>
+                        <a type="button" class="btn btn-info" href="/logout">Logout</a>
                     </div>
-                </div>
-            </div>
-        </header>
-        <br>
+                </form>
+            </c:if>
+        </div>
     </div>
 </nav>
-<div class="navbar-collapse collapse">
-        <form:form class="navbar-form navbar-center" method="post" enctype="multipart/form-data" modelAttribute="newPostForm">
-            <h2>Post data</h2>
+<br>
+<div class="container card" style="width: 705px;">
+    <form:form class="navbar-form navbar-center" method="post" enctype="multipart/form-data"
+               modelAttribute="newPostForm">
+    <div class="card-body">
+        <h2 class="h3 mb-3 fw-normal text-center">Post data</h2>
+        <ul class="list-group ">
             <ul class="list-group list-group-horizontal">
-                <div class="form-group">
-                    <form:input type="text" path="title" placeholder="Title" autofocus="true" class="form-control"></form:input>
-                    <form:input type="text" path="description" placeholder="Description" class="form-control"></form:input>
-                    <form:input type="text" path="price" placeholder="Price" class="form-control"></form:input>
-                    <br>
-                    <br>
-                </div>
-                <input type="file" name="file" class="btn btn-info">
-                <br>
+                <form:input type="text" path="title" placeholder="Title"
+                            class="list-group-item"></form:input>
+                <form:input type="text" path="description" placeholder="Description"
+                            class="list-group-item"></form:input>
+                <form:input type="text" path="price" placeholder="Price" class="list-group-item"></form:input>
             </ul>
-            <button type="submit" class="btn btn-success">Update</button>
+            <br>
+            <input type="file" name="file" class="btn btn-info float-left">
+        </ul>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success">Update</button>
         </form:form>
+    </div>
 </div>
 </body>
 </html>

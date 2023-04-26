@@ -42,7 +42,7 @@ public class PostController {
 
     @GetMapping("post/newpost")
     public String newPost(Model model){
-        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+        System.out.println(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
         Post post = new Post();
         model.addAttribute("newPostForm", post);
         return "newpost";
